@@ -8,7 +8,12 @@ public class Main {
         Queue<Person>queue = new LinkedList<>(generateClients());
 
         while(!queue.isEmpty()){
-            System.out.println(queue.poll());
+            Person personList = queue.poll();
+            personList.tickets = personList.tickets -1;
+            System.out.printf("%s %s прокатился(ась) на атракционе, осталось %d \n", personList.name, personList.surname, personList.tickets);
+            if(personList.tickets > 0){
+                queue.add(personList);
+            }
         }
     }
 
@@ -18,15 +23,13 @@ public class Main {
         Person person1 = new Person("Petya", "Gagarin", 5);
         Person person2 = new Person("Olya", "Koroleva", 1);
         Person person3 = new Person("Nastya", "Karpushina", 2);
-        Person person4 = new Person("Kolya", "Nikolayev", 31);
-        Person person5 = new Person("Tanya", "Linchburger", 7);
+        Person person4 = new Person("Kolya", "Nikolayev", 7);
 
         visitors.add(person);
         visitors.add(person1);
         visitors.add(person2);
         visitors.add(person3);
         visitors.add(person4);
-        visitors.add(person5);
 
         return visitors;
     }
