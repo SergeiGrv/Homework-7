@@ -31,6 +31,8 @@ public class Main {
         visitors.add(person3);
         visitors.add(person4);
 
+        System.out.println(visitors.toString().replaceAll("^\\[|]", "").replaceAll(",", ""));
+
         return visitors;
     }
 }
